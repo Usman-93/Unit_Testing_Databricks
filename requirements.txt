@@ -1,0 +1,4 @@
+pytest
+setuptools
+wheel
+databricks-connect==15.1.*

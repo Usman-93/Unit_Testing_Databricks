@@ -1,0 +1,40 @@
+
+from Run_ETL_Pipeline.gold_dim_customer_ingestion_refactored import silver_customer_incorrect_business_transformation, silver_customer_correct_business_transformation
+
+def test_gold_dim_customer_sydney_code5_no_rows(serverless):
+    # STEP 1: Arrange
+    spark = serverless
+
+    # limit(0): As I want to use my own test data to this object
+    silver_customer = spark.read.table("silver.customer").limit(0)
+
+    test_data = [
+
+        (1, "Customer_1", "Sydney", "Code5"),
+        (2, "Customer_2", "Sydney", "Code5"),
+
+        (4, "Customer_4", "Adelaide", "Code5"),
+
+
+        (5, "Customer_5", "Melbourne", "Code1"),
+        (6, "Customer_6", "Brisbane", "Code2"),
+        (7, "Customer_7", "Perth", "Code3"),
+    ]
+
+    df = spark.createDataFrame(data= test_data, schema = silver_customer.schema)
+
+    test_df = silver_customer.unionByName(df, allowMissingColumns=True)
+
+
+    # STEP 2: Act
+    result = silver_customer_correct_business_transformation(customer=test_df)
+
+    actual_number_of_rows = result.count()
+
+    # STEP 3: Assert
+    expected_number_of_rows = 4
+    assert actual_number_of_rows == expected_number_of_rows
+
+
+
+
