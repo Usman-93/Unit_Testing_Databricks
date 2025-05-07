@@ -13,12 +13,10 @@ def test_gold_dim_customer_sydney_code5_no_rows(serverless):
         (1, "Customer_1", "Sydney", "Code5"),
         (2, "Customer_2", "Sydney", "Code5"),
 
-        (4, "Customer_4", "Adelaide", "Code5"),
-
-
-        (5, "Customer_5", "Melbourne", "Code1"),
-        (6, "Customer_6", "Brisbane", "Code2"),
-        (7, "Customer_7", "Perth", "Code3"),
+        (3, "Customer_3", "Adelaide", "Code5"),
+        (4, "Customer_4", "Melbourne", "Code1"),
+        (5, "Customer_5", "Brisbane", "Code2"),
+        (6, "Customer_6", "Perth", "Code3"),
     ]
 
     df = spark.createDataFrame(data= test_data, schema = silver_customer.schema)
