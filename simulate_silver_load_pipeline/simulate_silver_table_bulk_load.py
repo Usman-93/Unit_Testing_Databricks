@@ -1,11 +1,9 @@
 
-from databricks.connect import DatabricksSession
-spark = DatabricksSession.builder.serverless(True).getOrCreate()
-
+from manage_sparkSession import spark
 from pyspark.sql.types import IntegerType, StringType, StructType, StructField
 import random
 
-def load_sample_customers(spark, num_rows: int = 100):
+def load_sample_customers(num_rows: int = 100):
     code_options = ["Code1", "Code2", "Code3", "Code4", "Code5"]
     cities = ["Sydney", "Melbourne", "Brisbane", "Perth"]
 
@@ -36,4 +34,4 @@ def load_sample_customers(spark, num_rows: int = 100):
     print(f"{num_rows} rows loaded into 'silver.customer'.")
 
 
-load_sample_customers(spark)
+load_sample_customers()

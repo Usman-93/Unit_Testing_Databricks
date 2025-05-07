@@ -1,6 +1,4 @@
-
-from databricks.connect import DatabricksSession
-spark = DatabricksSession.builder.serverless(True).getOrCreate()
+from manage_sparkSession import spark
 
 # COMMAND ----------
 spark.sql("""

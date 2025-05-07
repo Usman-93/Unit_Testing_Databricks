@@ -28,7 +28,7 @@ def load_dim_customer():
                 "Id" : "source.Id",
                 "Name" : "source.Name",
                 "City" : "source.City",
-                "CustomerCode" : "source.CustomerCode",
+                "CustomerCode" : "source.CustomerCode"
             }
         )
         .whenNotMatchedInsert(
@@ -36,7 +36,7 @@ def load_dim_customer():
                 "Id": "source.Id",
                 "Name": "source.Name",
                 "City": "source.City",
-                "CustomerCode": "source.CustomerCode",
+                "CustomerCode": "source.CustomerCode"
             }
         )
         .execute()

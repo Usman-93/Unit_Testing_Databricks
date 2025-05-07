@@ -6,8 +6,8 @@ spark = DatabricksSession.builder.serverless(True).getOrCreate()
 
 
 # COMMAND ----------
-def load_dim_customer():
-    silver_customer = silver_customer_correct_business_transformation()
+def load_gold_dim_customer():
+    silver_customer = customer_business_transformation()
 
     source = silver_customer
 
@@ -39,32 +39,18 @@ def load_dim_customer():
     )
 
 
-def silver_customer_incorrect_business_transformation(customer=None):
 
-    silver_customer = customer or spark.read.table("silver.customer")
-
-    silver_customer = (
-        silver_customer
-        # business_transformation
-    )
-    return silver_customer
-
-
-def silver_customer_correct_business_transformation(customer=None):
+def customer_business_transformation(customer=None):
 
     silver_customer = customer or spark.read.table("silver.customer")
 
 
     silver_customer = (
         silver_customer
-        # .filter(
-        #     (F.col("City") != "Sydney")            &
-        #     (F.col("CustomerCode") != "Code5"  )
-        # )
         .filter(~((F.col("City") == "Sydney") & (F.col("CustomerCode") == "Code5")))
     )
 
     return silver_customer
 
 
-load_dim_customer()
+load_gold_dim_customer()

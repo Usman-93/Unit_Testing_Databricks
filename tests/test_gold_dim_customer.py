@@ -1,5 +1,5 @@
 
-from Run_ETL_Pipeline.gold_dim_customer_ingestion_refactored import silver_customer_incorrect_business_transformation, silver_customer_correct_business_transformation
+from silver_gold_pipelines.gold_dim_customer_ingestion_refactored import customer_business_transformation
 
 def test_gold_dim_customer_sydney_code5_no_rows(serverless):
     # STEP 1: Arrange
@@ -27,7 +27,7 @@ def test_gold_dim_customer_sydney_code5_no_rows(serverless):
 
 
     # STEP 2: Act
-    result = silver_customer_correct_business_transformation(customer=test_df)
+    result = customer_business_transformation(customer=test_df)
 
     actual_number_of_rows = result.count()
 
