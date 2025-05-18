@@ -14,4 +14,4 @@ def test_greet():
     actual_output = greet(name)
 
     # STEP 3: Assert (compare expected and actual outputs)
-    assert expected_ouput == actual_output
+    assert  actual_output == expected_ouput

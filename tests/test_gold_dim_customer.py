@@ -1,10 +1,8 @@
 
 from silver_gold_pipelines.gold_dim_customer_ingestion_refactored import customer_business_transformation
 
-def test_gold_dim_customer_sydney_code5_no_rows(serverless):
+def test_gold_dim_customer_sydney_code5_no_rows():
     # STEP 1: Arrange
-    spark = serverless
-
     # limit(0): As I want to use my own test data to this object
     silver_customer = spark.read.table("silver.customer").limit(0)
 
