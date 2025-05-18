@@ -49,8 +49,6 @@ def customer_business_transformation(customer=None):
     silver_customer = (
         silver_customer
         .filter(~((F.col("City") == "Sydney") & (F.col("CustomerCode") == "Code5")))
-
-
     )
 
     return silver_customer

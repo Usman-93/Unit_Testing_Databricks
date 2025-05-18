@@ -8,7 +8,7 @@ def test_greet():
     # STEP 1: Arrange (Arrange the input data for the method. Also have the expected_output ready)
     name = "Usman"                      # Input
 
-    expected_ouput = "hello Usman"      # Expected Output
+    expected_ouput = "Hello Usman"      # Expected Output
 
     # STEP 2: Act (Call the Code/Function under test)
     actual_output = greet(name)
