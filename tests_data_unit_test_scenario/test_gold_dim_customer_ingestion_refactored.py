@@ -1,5 +1,5 @@
 
-from silver_gold_pipelines.gold_dim_customer_ingestion_refactored import customer_business_transformation
+from data_unit_test_scenario.silver_gold_pipelines.gold_dim_customer_ingestion_refactored import customer_business_transformation
 
 def test_gold_dim_customer_sydney_code5_no_rows():
     # STEP 1: Arrange
